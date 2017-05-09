@@ -1,1 +1,0 @@
-﻿Just kills BDO if it's not found in netstat.
