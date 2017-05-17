@@ -9,10 +9,13 @@ namespace BDOWatcher
     class Program
     {
         private const string ProcName = "BlackDesert64";
+        private const int Limit = 10;
 
         static void Main(string[] args)
         {
             Console.Title = "BDO! Please dont burn my GPU!";
+
+            var count = 0;
 
             while (true)
             {
@@ -29,8 +32,10 @@ namespace BDOWatcher
                     Console.Write(has);
                     Console.Write(Environment.NewLine);
                 }
-                
-                if (!has) break;
+
+                count = !has ? count + 1 : 0;
+
+                if (count >= Limit) break;
 
                 Thread.Sleep(3000);
                 GC.Collect();
